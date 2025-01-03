@@ -1,0 +1,50 @@
+<div class="container">
+    <h1>Novo livro</h1>
+
+    <a href="livro/index" class="btn btn-primary">Voltar</a>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-group">
+            <label for="titulo">Título:</label>
+            <input formControlName="titulo" id="titulo" type="text" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="editora">Editora:</label>
+            <input formControlName="editora" id="editora" type="text" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="edicao">Edição:</label>
+            <input formControlName="edicao" id="edicao" type="number" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="anoPublicacao">Ano de publicação:</label>
+            <input formControlName="anoPublicacao" id="anoPublicacao" type="text" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label>Autores:</label>
+            <div class="form-check" *ngFor="let autor of autores">
+                <input class="form-check-input" [(ngModel)]="autor.codigo" name="{{ autor.nome }}" type="checkbox" id="{{autor.nome}}" (change)="onChangeAutor(autor)">
+                <label class="form-check-label" for="{{autor.nome}}">
+                    {{autor.nome}}
+                </label>
+            </div>    
+        </div>
+
+        <div class="form-group">
+            <label>Assuntos:</label>
+            <div class="form-check" *ngFor="let assunto of assuntos">
+                <input class="form-check-input" [(ngModel)]="assunto.codigo" name="{{ assunto.descricao }}" type="checkbox" id="{{assunto.descricao}}" (change)="onChangeAssunto(assunto)">
+                <label class="form-check-label" for="{{assunto.descricao}}">
+                    {{assunto.descricao}}
+                </label>
+            </div>
+        </div>       
+
+        <button class="btn btn-primary" type="submit">Cadastrar</button>
+    </form>
+</div>

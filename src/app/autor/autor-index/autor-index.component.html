@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Listar autores</h1>
+
+    <a href="#" routerLink="/autor/create/" class="btn btn-success">Novo autor</a>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th width="250px">Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let autor of autores">
+                <td>{{ autor.codigo }}</td>
+                <td>{{ autor.nome }}</td>
+                <td>
+                    <a href="#" [routerLink]="['/autor/', autor.codigo, 'view']" class="btn btn-info">Visualizar</a>
+                    <a href="#" [routerLink]="['/autor/', autor.codigo, 'edit']" class="btn btn-primary">Editar</a>
+                    <button type="button" (click)="deleteAutor(autor.codigo)" class="btn btn-danger">Excluir</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

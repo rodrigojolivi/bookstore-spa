@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Listar assuntos</h1>
+
+    <a href="#" routerLink="/assunto/create/" class="btn btn-success">Novo assunto</a>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Descrição</th>
+                <th width="250px">Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let assunto of assuntos">
+                <td>{{ assunto.codigo }}</td>
+                <td>{{ assunto.descricao }}</td>
+                <td>
+                    <a href="#" [routerLink]="['/assunto/', assunto.codigo, 'view']" class="btn btn-info">Visualizar</a>
+                    <a href="#" [routerLink]="['/assunto/', assunto.codigo, 'edit']" class="btn btn-primary">Editar</a>
+                    <button type="button" (click)="deleteLivro(assunto.codigo)" class="btn btn-danger">Excluir</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

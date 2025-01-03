@@ -1,0 +1,15 @@
+<div class="container">
+    <h1>Novo assunto</h1>
+
+    <a href="assunto/index" class="btn btn-primary">Voltar</a>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-group">
+            <label for="descricao">Descrição:</label>
+            <input formControlName="descricao" id="descricao" type="text" class="form-control">
+        </div>
+
+        <button class="btn btn-primary" type="submit">Cadastrar</button>
+    </form>
+</div>
